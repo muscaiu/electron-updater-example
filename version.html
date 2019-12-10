@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Electron Updater Example</title>
+</head>
+<body>
+  Current version: <span id="version">vX.Y.Z</span>
+  <div id="messages"></div>
+<script>
+// Display the current version
+let version = window.location.hash.substring(1);
+console.log('version:', version)
+document.getElementById('version').innerText = version;
+
+// Listen for messages
+const {ipcRenderer} = require('electron');
+
+ipcRenderer.on('message', function(event, text) {
+  console.log('event:', event)
+  console.log('text:', text)
+  var container = document.getElementById('messages');
+  var message = document.createElement('div');
+  message.innerHTML = text;
+  container.appendChild(message);
+})
+</script>
+</body>
+</html>
