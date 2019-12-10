@@ -8,25 +8,25 @@ autoUpdater.logger.transports.file.level = 'info';
 log.info('App starting...');
 
 //-------------------------------------------------------------------
-// let template = []
-// if (process.platform === 'darwin') {
-//   // OS X
-//   const name = app.getName();
-//   template.unshift({
-//     label: name,
-//     submenu: [
-//       {
-//         label: 'About ' + name,
-//         role: 'about'
-//       },
-//       {
-//         label: 'Quit',
-//         accelerator: 'Command+Q',
-//         click() { app.quit(); }
-//       },
-//     ]
-//   })
-// }
+let template = []
+if (process.platform === 'darwin') {
+  // OS X
+  const name = app.getName();
+  template.unshift({
+    label: name,
+    submenu: [
+      {
+        label: 'About ' + name,
+        role: 'about'
+      },
+      {
+        label: 'Quit',
+        accelerator: 'Command+Q',
+        click() { app.quit(); }
+      },
+    ]
+  })
+}
 
 
 //-------------------------------------------------------------------
